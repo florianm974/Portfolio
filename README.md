@@ -8,15 +8,15 @@ Portfolio personnel présentant mon profil, ma stack, ma formation et mes projet
 
 ## Présentation
 
-> Single page statique dark-theme avec une esthétique gold/purple, développée sans framework ni dépendances.
+> Single page dark-theme, tons or/violet. Pas de framework, pas de build.
 
 ---
 
 ## Stack
 
-- **HTML / CSS** — vanilla, sans framework, sans build
+- **HTML / CSS** — vanilla
 - **JavaScript** — Intersection Observer pour les reveals, scroll spy pour la nav
-- **Aucune dépendance externe** — tout est inline dans un seul fichier HTML
+- **Tout est inline** dans un seul fichier HTML
 - Hébergé sur **GitHub Pages**
 
 ---
@@ -34,9 +34,9 @@ portfolio/
 
 ## Fonctionnalités
 
-- Design responsive, dark theme élégant
-- Animations au scroll (reveal)
-- Navigation fluide avec scroll spy et menu mobile
+- Dark theme responsive
+- Animations au scroll
+- Navigation avec scroll spy et menu mobile
 - Section projets avec liens site + GitHub
 - CV disponible en téléchargement direct
 - Accessibilité (ARIA, prefers-reduced-motion)
