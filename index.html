@@ -260,6 +260,16 @@
       }
       .btn-ghost::after { background: var(--surface2); }
       .btn-ghost:hover { color: var(--text); }
+      .btn-form {
+        background: var(--surface);
+        border-color: var(--border);
+        color: var(--text-soft);
+      }
+      .btn-form::after { background: var(--gold); }
+      .btn-form:hover {
+        border-color: var(--gold);
+        color: var(--bg);
+      }
 
       /* ── LAYOUT ── */
       .container {
@@ -1071,9 +1081,9 @@
               <label for="cf-message">Message</label>
               <textarea id="cf-message" name="message" required></textarea>
             </div>
-            <button type="submit" class="btn"><span>Envoyer</span></button>
+            <button type="submit" class="btn btn-form"><span>Envoyer</span></button>
           </form>
-          <a href="mailto:flo.marianne31@proton.me" class="btn btn-ghost" style="margin-top:1rem"><span>ou par email →</span></a>
+          <a href="mailto:flo.marianne31@proton.me" class="btn btn-form" style="margin-top:1rem"><span>ou par email →</span></a>
           <div class="social-row">
             <a href="https://github.com/florianm974" class="soc-btn" target="_blank" rel="noopener noreferrer">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
