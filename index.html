@@ -11,6 +11,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://florianm974.github.io/portfolio/" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🌘</text></svg>" />    
+    <link rel="manifest" href="./manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -578,6 +579,106 @@
       }
 
       /* ── RESPONSIVE ── */
+      /* ── SCROLL PROGRESS ── */
+      .scroll-progress {
+        position: fixed;
+        top: 0; left: 0;
+        height: 2px;
+        background: linear-gradient(to right, var(--purple), var(--gold));
+        z-index: 1001;
+        width: 0;
+        pointer-events: none;
+      }
+
+      /* ── BACK TO TOP ── */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem; right: 2rem;
+        z-index: 1001;
+        width: 40px; height: 40px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--gold);
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: all .35s cubic-bezier(.16,1,.3,1);
+      }
+      .back-to-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .back-to-top:hover {
+        border-color: var(--gold);
+        background: var(--gold-glow);
+      }
+
+      /* ── SKILL BARS ── */
+      .stack-bar-wrap { margin-top: .5rem; }
+      .stack-bar {
+        height: 2px;
+        background: var(--border-soft);
+        border-radius: 1px;
+        overflow: hidden;
+      }
+      .stack-bar-fill {
+        height: 100%;
+        width: 0;
+        border-radius: 1px;
+        background: linear-gradient(to right, var(--purple-soft), var(--gold));
+        transition: width 1.2s cubic-bezier(.16,1,.3,1);
+      }
+      .stack-bar-fill.in { width: var(--level); }
+
+      /* ── CONTACT FORM ── */
+      .contact-form {
+        margin-top: 2.5rem;
+        text-align: left;
+      }
+      .form-group { margin-bottom: 1.2rem; }
+      .form-group label {
+        display: block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: .62rem;
+        letter-spacing: .2em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: .4rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border-soft);
+        padding: .8rem 1rem;
+        color: var(--text);
+        font-family: "Cormorant Garamond", serif;
+        font-size: .95rem;
+        transition: border-color .3s;
+        outline: none;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus { border-color: var(--gold); }
+      .form-group textarea { min-height: 120px; resize: vertical; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .form-status {
+        font-family: "JetBrains Mono", monospace;
+        font-size: .7rem;
+        margin-top: .8rem;
+        text-align: center;
+      }
+      .form-status.success { color: var(--gold); }
+      .form-status.error { color: #e06060; }
+
+      @media (max-width: 580px) {
+        .form-row { grid-template-columns: 1fr; }
+        .back-to-top { bottom: 1rem; right: 1rem; }
+      }
+
       /* ── CURSOR ── */
       .cursor-follower {
         position: fixed;
@@ -661,9 +762,28 @@
       }
     </style>
     <noscript><style>.hero-eyebrow{opacity:1!important}.cursor-follower,#particles-canvas{display:none!important}</style></noscript>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Florian Marianne",
+      "givenName": "Florian",
+      "familyName": "Marianne",
+      "jobTitle": "AI Engineer",
+      "alumniOf": "Universit\u00e9 de La R\u00e9union",
+      "url": "https://florianm974.github.io/portfolio/",
+      "sameAs": [
+        "https://github.com/florianm974",
+        "https://linkedin.com/in/florian-marianne"
+      ],
+      "knowsAbout": ["Intelligence Artificielle", "D\u00e9veloppement Full-Stack"],
+      "knowsLanguage": ["Python", "JavaScript", "C", "Java", "OCaml", "SQL", "HTML", "CSS"]
+    }
+    </script>
   </head>
   <body>
     <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
       <a href="#about">À Propos</a>
       <a href="#formation">Formation</a>
@@ -762,6 +882,7 @@
                 <span class="tag">SQL</span>
                 <span class="tag">HTML/CSS</span>
               </div>
+            <div class="stack-bar-wrap"><div class="stack-bar"><div class="stack-bar-fill" style="--level: 85%"></div></div></div>
             </div>
             <div class="stack-row">
               <p class="stack-label">IA & Automatisation</p>
@@ -771,6 +892,7 @@
                 <span class="tag">LLM</span>
                 <span class="tag">n8n</span>
               </div>
+            <div class="stack-bar-wrap"><div class="stack-bar"><div class="stack-bar-fill" style="--level: 70%"></div></div></div>
             </div>
             <div class="stack-row">
               <p class="stack-label">Web & Outils</p>
@@ -782,6 +904,7 @@
                 <span class="tag">Git</span>
                 <span class="tag">Linux</span>
               </div>
+            <div class="stack-bar-wrap"><div class="stack-bar"><div class="stack-bar-fill" style="--level: 75%"></div></div></div>
             </div>
             <div class="stack-row">
               <p class="stack-label">En apprentissage</p>
@@ -790,6 +913,7 @@
                 <span class="tag learning">React</span>
                 <span class="tag learning">PostgreSQL</span>
               </div>
+            <div class="stack-bar-wrap"><div class="stack-bar"><div class="stack-bar-fill" style="--level: 40%"></div></div></div>
             </div>
           </div>
         </div>
@@ -930,7 +1054,26 @@
             Disponible pour un <em>stage en IA</em> à partir de l'été 2026.<br />
             Ouvert à toute collaboration intéressante, en remote ou depuis La Réunion.
           </p>
-          <a href="mailto:flo.marianne31@proton.me" class="btn"><span>Envoyer un message</span></a>
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="41d10bad-6cdf-464d-9565-7ea403ad3c62">
+            <input type="hidden" name="subject" value="Portfolio - Nouveau message">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Nom</label>
+                <input type="text" id="cf-name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn"><span>Envoyer</span></button>
+          </form>
+          <a href="mailto:flo.marianne31@proton.me" class="btn btn-ghost" style="margin-top:1rem"><span>ou par email →</span></a>
           <div class="social-row">
             <a href="https://github.com/florianm974" class="soc-btn" target="_blank" rel="noopener noreferrer">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -956,6 +1099,7 @@
       </div>
     </section>
 
+    <button class="back-to-top" id="back-to-top" aria-label="Retour en haut">↑</button>
     <footer>
       <span class="foot-text">© 2026 Florian · La Réunion</span>
       <span class="foot-orn" aria-hidden="true">❧</span>
@@ -1109,6 +1253,36 @@
               obs.unobserve(el);
             }
           }, { threshold: .4 });
+          obs.observe(el);
+        });
+      }
+
+      /* --- SCROLL PROGRESS --- */
+      const progressBar = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = scrollHeight > 0 ? (scrollTop / scrollHeight * 100) + '%' : '0%';
+      }, { passive: true });
+
+      /* --- BACK TO TOP --- */
+      const backTop = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        backTop.classList.toggle('visible', window.scrollY > 600);
+      }, { passive: true });
+      backTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* --- SKILL BARS --- */
+      if (!rm) {
+        document.querySelectorAll('.stack-bar-fill').forEach(el => {
+          const obs = new IntersectionObserver(([e]) => {
+            if (e.isIntersecting) {
+              el.classList.add('in');
+              obs.unobserve(el);
+            }
+          }, { threshold: .3 });
           obs.observe(el);
         });
       }

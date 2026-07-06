@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page introuvable · Florian</title>
+    <meta name="theme-color" content="#06050c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background: #06050c;
+        color: #ddd5c8;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+        background:
+          radial-gradient(ellipse 100% 70% at 10% 0%, rgba(112,64,168,.09) 0%, transparent 55%),
+          radial-gradient(ellipse 80% 60% at 90% 100%, rgba(201,169,110,.05) 0%, transparent 50%);
+      }
+      .code {
+        font-family: "Cinzel", serif;
+        font-size: clamp(6rem, 20vw, 12rem);
+        font-weight: 700;
+        color: #c9a96e;
+        line-height: .85;
+        text-shadow: 0 0 100px rgba(201,169,110,.12);
+        margin-bottom: .5rem;
+      }
+      .orn {
+        color: #c9a96e;
+        opacity: .3;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-family: "Cinzel", serif;
+        font-size: clamp(1.2rem, 3vw, 1.6rem);
+        font-weight: 600;
+        color: #e6c98e;
+        letter-spacing: .07em;
+        margin-bottom: .8rem;
+      }
+      p {
+        font-size: 1.05rem;
+        color: #9a9088;
+        margin-bottom: 2.5rem;
+        font-style: italic;
+      }
+      a {
+        display: inline-block;
+        font-family: "Cinzel", serif;
+        font-size: .7rem;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: .9rem 2.5rem;
+        border: 1px solid #c9a96e;
+        color: #c9a96e;
+        transition: color .35s, background .35s;
+        position: relative;
+        overflow: hidden;
+      }
+      a::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #c9a96e;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform .35s cubic-bezier(.4,0,.2,1);
+        z-index: 0;
+      }
+      a:hover { color: #06050c; }
+      a:hover::after { transform: scaleX(1); }
+      a span { position: relative; z-index: 1; }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="code">404</p>
+    <p class="orn">❧</p>
+    <h1>Page introuvable</h1>
+    <p>Cette page n'existe pas ou a été déplacée.</p>
+    <a href="/portfolio/"><span>Retour à l'accueil</span></a>
+  </body>
+</html>
