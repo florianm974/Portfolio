@@ -4,11 +4,11 @@
   "description": "Portfolio — Étudiant L3 Informatique, spécialisé IA",
   "start_url": "/portfolio/",
   "display": "standalone",
-  "background_color": "#06050c",
-  "theme_color": "#06050c",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🌘</text></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23f4f4f4'><circle cx='25' cy='20' r='4'/><circle cx='45' cy='20' r='4'/><circle cx='65' cy='20' r='4'/><circle cx='25' cy='40' r='4'/><circle cx='25' cy='60' r='4'/><circle cx='25' cy='80' r='4'/><circle cx='45' cy='60' r='4'/><circle cx='65' cy='60' r='4'/></g></svg>",
       "sizes": "192x192",
       "type": "image/svg+xml"
     }
