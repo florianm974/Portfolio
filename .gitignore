@@ -9,3 +9,11 @@ Thumbs.db
 # Divers
 *.log
 *.bak
+
+# Artefacts de compilation LaTeX (locale et CI)
+cv/main.pdf
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
