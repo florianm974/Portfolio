@@ -28,8 +28,6 @@ portfolio/
 ├── index.html                 # Portfolio complet (HTML, CSS, JS inlinés)
 ├── 404.html                   # Page 404 personnalisée
 ├── manifest.json              # Manifest PWA
-├── cv/                        # Source LaTeX du CV — main.tex
-├── cv-marianne-florian.pdf    # CV compilé en local, committé avec la source
 └── LICENSE
 ```
 
@@ -41,8 +39,7 @@ portfolio/
 - Animations au scroll
 - Navigation avec scroll spy et menu mobile
 - Section projets avec liens site + GitHub
-- CV disponible en téléchargement direct
-- CV en LaTeX (`cv/main.tex`), compilé localement via LaTeX Workshop (VS Code/VSCodium) puis committé
+- CV accessible via Overleaf (lien de lecture public) — voir et télécharger directement depuis la page
 - Accessibilité (ARIA, prefers-reduced-motion)
 
 ---
