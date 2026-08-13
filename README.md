@@ -28,6 +28,7 @@ portfolio/
 ├── index.html                 # Portfolio complet (HTML, CSS, JS inlinés)
 ├── 404.html                   # Page 404 personnalisée
 ├── manifest.json              # Manifest PWA
+├── og.png                     # Image Open Graph (partage réseaux)
 └── LICENSE
 ```
 
